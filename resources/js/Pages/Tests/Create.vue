@@ -5,6 +5,36 @@
                 >Add Questions</label
             >
             <div
+                class="flex gap-5 text-sm"
+                v-for="(question, index) in questions"
+                :key="index"
+            >
+                <p class="text-sm font-medium text-gray-500">
+                    Qustion {{ index + 1 }}.
+                </p>
+                <div class="space-y-2">
+                    <p>{{ question.question }}?</p>
+                    <div class="flex gap-5">
+                        <div class="flex gap-2">
+                            <span>A.</span>
+                            <p>{{ question.options_a }}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span>B.</span>
+                            <p>{{ question.options_b }}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span>C.</span>
+                            <p>{{ question.options_c }}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span>D.</span>
+                            <p>{{ question.options_d }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
                 class="flex items-start gap-6 mx-4"
                 v-for="(question, index) in questions"
                 :key="index"
@@ -124,12 +154,12 @@ const notificationMethods = [
 ];
 const questions = ref([
     {
-        question: "",
-        options_a: "",
-        options_b: "",
-        options_c: "",
-        options_d: "",
-        answer: "",
+        question: "What is the capital of Canada",
+        options_a: "Ottawa",
+        options_b: "Toronto",
+        options_c: "Vancouver",
+        options_d: "Montreal",
+        answer: "options_a",
     },
 ]);
 const newQuestion = ref({
