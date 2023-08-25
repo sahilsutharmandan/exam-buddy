@@ -11,7 +11,7 @@
                 {{ " " }}
                 <Link
                     :href="route('register')"
-                    class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="text-sm text-yellow-500 underline rounded-md hover:text-yellow-400 focus:outline-none"
                 >
                     Sign Up.
                 </Link>
@@ -52,7 +52,7 @@
                     <div>
                         <Link
                             :href="route('password.request')"
-                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            class="text-sm text-yellow-500 underline rounded-md hover:text-yellow-400 focus:outline-none"
                         >
                             Forgot your password?
                         </Link>
