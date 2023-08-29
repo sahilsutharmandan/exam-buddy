@@ -34,8 +34,11 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('tests', [TestController::class,'index'])->name('tests.index');
-Route::get('tests/create', [TestController::class,'create'])->name('tests.create');
+Route::middleware('auth')->group(function () {
+    Route::get('tests', [TestController::class,'index'])->name('tests.index');
+    Route::get('tests/create', [TestController::class,'create'])->name('tests.create');
+    Route::post('tests/store', [TestController::class,'store'])->name('tests.store');
+});
 // Route::post('chat/store', [chatController::class,'store'])->name('chat.store');
 // Route::get('chat/{id}/edit', [chatController::class,'edit'])->name('chat.edit');
 // Route::put('chat/{id}/update', [chatController::class,'update'])->name('chat.update');

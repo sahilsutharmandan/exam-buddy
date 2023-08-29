@@ -1,0 +1,9 @@
+.btn {
+    @apply inline-flex items-center uppercase justify-center w-full px-4 py-2 text-xs font-semibold tracking-widest transition duration-150 ease-in-out border  rounded-md focus:ring-offset-2 focus:outline-none focus:ring-2;
+}
+.btn-primary {
+    @apply text-white bg-yellow-500 hover:bg-yellow-400 focus:ring-yellow-500 border-transparent;
+}
+.btn-secondary {
+    @apply text-gray-700 bg-gray-100 hover:bg-gray-200 focus:ring-gray-500;
+}
