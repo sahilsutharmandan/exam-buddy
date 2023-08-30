@@ -1,7 +1,6 @@
 <template>
     <AuthenticatedLayout>
         <div>
-            <Link :href="route('tests.create')"> Create </Link>
             <div>
                 <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <h2
@@ -15,6 +14,16 @@
                         <div
                             class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
                         >
+                            <div class="flex justify-end py-2">
+                                <Link :href="route('tests.create')">
+                                    <button
+                                        :href="route('tests.create')"
+                                        class="btn btn-secondary !w-32"
+                                    >
+                                        <PlusIcon class="w-5 h-5" /> Add Test
+                                    </button></Link
+                                >
+                            </div>
                             <div
                                 class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg"
                             >
@@ -90,6 +99,7 @@
     </AuthenticatedLayout>
 </template>
 <script setup>
+import { PlusIcon } from "@heroicons/vue/24/outline";
 defineProps({
     tests: [Object, Array],
 });

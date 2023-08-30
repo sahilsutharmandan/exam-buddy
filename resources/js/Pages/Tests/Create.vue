@@ -37,6 +37,12 @@
                     <p class="mt-7">
                         {{ question[question.answer] }}
                     </p>
+                    <button
+                        @click="deleteQuestion(index)"
+                        class="mt-5 !w-8 !p-2 btn btn-icon-danger"
+                    >
+                        <TrashIcon class="w-5" />
+                    </button>
                 </div>
             </div>
             <div class="px-5 space-y-5">
@@ -175,7 +181,7 @@
 import { ref } from "vue";
 import InputError from "@/Components/InputError.vue";
 import axios from "axios";
-
+import { TrashIcon } from "@heroicons/vue/24/outline";
 const props = defineProps({
     errors: Object,
 });
@@ -224,6 +230,9 @@ const addNewQuestion = () => {
             answer: "",
         };
     }
+};
+const deleteQuestion = (index) => {
+    questions.value.splice(index, 1);
 };
 const jsonData = JSON.stringify(questions.value);
 const submitQuestions = async () => {
