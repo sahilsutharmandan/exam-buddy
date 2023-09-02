@@ -9,6 +9,7 @@
             @input="$emit('update:modelValue', $event.target.value)"
             ref="input"
             :type="type"
+            :placeholder="placeholder"
         />
 
         <InputError class="mt-2" :message="error" />
@@ -31,6 +32,9 @@ defineProps({
         type: String,
     },
     error: {
+        type: String,
+    },
+    placeholder: {
         type: String,
     },
 
