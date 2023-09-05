@@ -38,10 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::get('tests', [TestController::class,'index'])->name('tests.index');
     Route::get('tests/create', [TestController::class,'create'])->name('tests.create');
     Route::post('tests/store', [TestController::class,'store'])->name('tests.store');
+    Route::get('tests/{id}/edit', [TestController::class,'edit'])->name('tests.edit');
+    Route::put('tests/{id}/update', [TestController::class,'update'])->name('tests.update');
+    Route::get('tests/{id}/delete', [TestController::class,'destroy'])->name('tests.delete');
 });
-// Route::post('chat/store', [chatController::class,'store'])->name('chat.store');
-// Route::get('chat/{id}/edit', [chatController::class,'edit'])->name('chat.edit');
-// Route::put('chat/{id}/update', [chatController::class,'update'])->name('chat.update');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

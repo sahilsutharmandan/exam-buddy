@@ -5,6 +5,7 @@ import "../css/dashboard.css";
 import "../css/button.css";
 import "../css/dropdown.scss";
 import "primevue/resources/themes/viva-light/theme.css";
+import "primeicons/primeicons.css";
 
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";

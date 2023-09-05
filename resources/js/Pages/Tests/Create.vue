@@ -71,7 +71,7 @@
                             {{ question[question.answer] }}
                         </p>
                         <button
-                            @click="deleteQuestion(index)"
+                            @click.prevent="deleteQuestion(index)"
                             class="mt-5 !w-8 !p-2 btn btn-icon-danger"
                         >
                             <TrashIcon class="w-5" />
@@ -217,9 +217,11 @@
                     </button>
                     <PrimaryButton
                         class="!w-52"
-                        @click.prevent="submitQuestions"
+                        @click.prevent="
+                            test?.id ? updateTest(test?.id) : submitTest()
+                        "
                     >
-                        Save Questions
+                        {{ test?.id ? "Update " : "Add " }} Test
                     </PrimaryButton>
                 </div>
             </div>
@@ -235,23 +237,28 @@ import { TrashIcon } from "@heroicons/vue/24/outline";
 import { stringify } from "postcss";
 const props = defineProps({
     errors: Object,
+    test: Object,
 });
-const form = useForm({
-    test_name: "",
-    test_duration_time: 0,
-    subject: "",
-    date_range: [],
-    questions: [
-        {
-            question: "What is the capital of Canada",
-            options_a: "Ottawa",
-            options_b: "Toronto",
-            options_c: "Vancouver",
-            options_d: "Montreal",
-            answer: "options_a",
-        },
-    ],
-});
+const form = useForm(
+    props?.test
+        ? props.test
+        : {
+              test_name: "",
+              test_duration_time: 0,
+              subject: "",
+              date_range: [],
+              questions: [
+                  {
+                      question: "What is the capital of Canada",
+                      options_a: "Ottawa",
+                      options_b: "Toronto",
+                      options_c: "Vancouver",
+                      options_d: "Montreal",
+                      answer: "options_a",
+                  },
+              ],
+          }
+);
 
 const newQuestion = ref({
     question: "",
@@ -300,7 +307,7 @@ const deleteQuestion = (index) => {
     form.questions.splice(index, 1);
 };
 
-const submitQuestions = () => {
+const submitTest = () => {
     const questionsJSON = JSON.stringify(form.questions);
     const dateRangeJSON = JSON.stringify(form.date_range);
 
@@ -308,6 +315,15 @@ const submitQuestions = () => {
     form.date_range = dateRangeJSON;
 
     form.post(route("tests.store"));
+};
+const updateTest = (id) => {
+    const questionsJSON = JSON.stringify(form.questions);
+    const dateRangeJSON = JSON.stringify(form.date_range);
+
+    form.questions = questionsJSON;
+    form.date_range = dateRangeJSON;
+
+    form.put(route("tests.update", id));
 };
 
 const goBack = () => {

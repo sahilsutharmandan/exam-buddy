@@ -130,13 +130,34 @@
                                             </td>
 
                                             <td
-                                                class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6"
+                                                class="relative flex items-center gap-3 py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6"
                                             >
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    :href="
+                                                        route(
+                                                            'tests.edit',
+                                                            test.id
+                                                        )
+                                                    "
                                                     class="text-indigo-600 hover:text-indigo-900"
-                                                    >Edit</a
                                                 >
+                                                    <i
+                                                        class="text-lg pi pi-pencil"
+                                                    ></i>
+                                                </Link>
+                                                <Link
+                                                    :href="
+                                                        route(
+                                                            'tests.delete',
+                                                            test.id
+                                                        )
+                                                    "
+                                                    class="text-red-500 hover:text-red-700"
+                                                >
+                                                    <i
+                                                        class="pi pi-trash test-lg"
+                                                    ></i>
+                                                </Link>
                                             </td>
                                         </tr>
                                     </tbody>
