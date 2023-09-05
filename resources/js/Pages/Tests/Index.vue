@@ -9,6 +9,7 @@
                         Recent activity
                     </h2>
                 </div>
+
                 <div class="flow-root mx-8 lg:mt-8">
                     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div
@@ -36,7 +37,19 @@
                                                 scope="col"
                                                 class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                                             >
+                                                Id
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                                            >
                                                 Name
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                                            >
+                                                Subject
                                             </th>
                                             <th
                                                 scope="col"
@@ -69,13 +82,51 @@
                                     <tbody
                                         class="bg-white divide-y divide-gray-200"
                                     >
-                                        <tr>
+                                        <tr
+                                            v-for="test in tests"
+                                            :key="test?.id"
+                                        >
                                             <td
-                                                v-for="person in people"
-                                                :key="person"
                                                 class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
                                             >
-                                                {{ person }}
+                                                {{ test?.id }}
+                                            </td>
+                                            <td
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
+                                            >
+                                                {{ test?.test_name }}
+                                            </td>
+                                            <td
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
+                                            >
+                                                {{ test?.subject }}
+                                            </td>
+                                            <td
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
+                                            >
+                                                {{
+                                                    formatDate(
+                                                        test?.date_range[0]
+                                                    )
+                                                }}-{{
+                                                    formatDate(
+                                                        test?.date_range[1]
+                                                    )
+                                                }}
+                                            </td>
+                                            <td
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
+                                            >
+                                                {{ test?.questions.length }}
+                                            </td>
+                                            <td
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
+                                            >
+                                                {{
+                                                    formatTime(
+                                                        test?.test_duration_time
+                                                    )
+                                                }}
                                             </td>
 
                                             <td

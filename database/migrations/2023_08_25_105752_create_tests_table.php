@@ -12,6 +12,10 @@ return new class () extends Migration {
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
+            $table->string('test_name');
+            $table->string('subject');
+            $table->integer('test_duration_time');
+            $table->json('date_range');
             $table->json('questions');
             $table->timestamps();
         });

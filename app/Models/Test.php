@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     use HasFactory;
-    protected $fillable = ['questions'];
+    protected $casts = [
+        'questions' => 'array',
+        'date_range' => 'array',
+    ];
 }

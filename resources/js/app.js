@@ -16,7 +16,7 @@ import TextInput from "@/Components/TextInput.vue";
 import Dropdown from "@/Components/Dropdown.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import PrimeVue from "primevue/config";
-
+import FormatService from "@/Services/FormatService";
 // Primevue components
 
 import Calendar from "primevue/calendar";
@@ -46,6 +46,7 @@ createInertiaApp({
             .component("AuthenticatedLayout", AuthenticatedLayout)
             .component("Dropdown", Dropdown)
             .component("Calendar", Calendar)
+            .mixin(FormatService)
             .mount(el);
     },
     progress: {
