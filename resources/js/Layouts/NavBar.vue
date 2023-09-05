@@ -19,7 +19,7 @@
                         </div>
                         <div class="hidden lg:ml-10 lg:block">
                             <div class="flex space-x-4">
-                                <a
+                                <Link
                                     v-for="item in navigation"
                                     :key="item.name"
                                     :href="item.href"
@@ -32,7 +32,7 @@
                                     :aria-current="
                                         item.current ? 'page' : undefined
                                     "
-                                    >{{ item.name }}</a
+                                    >{{ item.name }}</Link
                                 >
                             </div>
                         </div>
@@ -239,8 +239,16 @@ const user = {
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-    { name: "Dashboard", href: route("dashboard"), current: true },
-    { name: "Tests", href: route("tests.index"), current: false },
+    {
+        name: "Dashboard",
+        href: route("dashboard"),
+        current: window.location.pathname === "/dashboard",
+    },
+    {
+        name: "Tests",
+        href: route("tests.index"),
+        current: window.location.pathname === "/tests",
+    },
     { name: "Projects", href: "#", current: false },
     { name: "Calendar", href: "#", current: false },
     { name: "Reports", href: "#", current: false },
