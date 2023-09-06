@@ -80,4 +80,19 @@ class TestController extends Controller
         $test->delete();
         return back();
     }
+    public function view($id)
+    {
+        $test = Test::where('id', $id)->first();
+
+        $questionsWithoutAnswers = collect($test->questions)->map(function ($question) {
+            unset($question['answer']);
+            return $question;
+        });
+
+        $test->questions = $questionsWithoutAnswers;
+
+        return Inertia::render('Tests/View', ['test' => $test]);
+    }
+
+
 }

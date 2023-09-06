@@ -122,6 +122,9 @@
                                             <td
                                                 class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6"
                                             >
+                                                <i
+                                                    class="!text-xs pi pi-clock"
+                                                ></i>
                                                 {{
                                                     formatTime(
                                                         test?.test_duration_time
@@ -156,6 +159,19 @@
                                                 >
                                                     <i
                                                         class="pi pi-trash test-lg"
+                                                    ></i>
+                                                </Link>
+                                                <Link
+                                                    :href="
+                                                        route(
+                                                            'tests.view',
+                                                            test.id
+                                                        )
+                                                    "
+                                                    class="text-green-600 hover:text-green-900"
+                                                >
+                                                    <i
+                                                        class="pi pi-eye test-lg"
                                                     ></i>
                                                 </Link>
                                             </td>

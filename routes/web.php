@@ -26,10 +26,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/', function () {
-//     return redirect(route('login'))  ;
-// });
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -41,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('tests/{id}/edit', [TestController::class,'edit'])->name('tests.edit');
     Route::put('tests/{id}/update', [TestController::class,'update'])->name('tests.update');
     Route::get('tests/{id}/delete', [TestController::class,'destroy'])->name('tests.delete');
+    Route::get('tests/{id}', [TestController::class,'view'])->name('tests.view');
 });
 
 
