@@ -51,7 +51,6 @@ class TestController extends Controller
     }
     public function update(Request $request, $id)
     {
-        // dd($request->all());
         $validatedData = $request->validate([
             'test_name' => 'required|string',
             'test_duration_time' => 'required|numeric',
