@@ -246,8 +246,8 @@ const navigation = [
     },
     {
         name: "Tests",
-        // href: route("admin.tests.index"),
-        // current: window.location.pathname === "/admin/tests",
+        href: route("admin.tests.index"),
+        current: window.location.pathname === "/admin/tests",
     },
     { name: "Projects", href: "#", current: false },
     { name: "Calendar", href: "#", current: false },

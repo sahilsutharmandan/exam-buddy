@@ -1,5 +1,5 @@
 <template>
-    <AuthenticatedLayout>
+    <AdminAuthenticatedLayout>
         <div>
             <div>
                 <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -16,11 +16,8 @@
                             class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
                         >
                             <div class="flex justify-end py-2">
-                                <Link :href="route('tests.create')">
-                                    <button
-                                        :href="route('tests.create')"
-                                        class="btn btn-secondary !w-32"
-                                    >
+                                <Link :href="route('admin.tests.create')">
+                                    <button class="btn btn-secondary !w-32">
                                         <PlusIcon class="w-5 h-5" /> Add Test
                                     </button></Link
                                 >
@@ -138,7 +135,7 @@
                                                 <Link
                                                     :href="
                                                         route(
-                                                            'tests.edit',
+                                                            'admin.tests.edit',
                                                             test.id
                                                         )
                                                     "
@@ -151,7 +148,7 @@
                                                 <Link
                                                     :href="
                                                         route(
-                                                            'tests.delete',
+                                                            'admin.tests.delete',
                                                             test.id
                                                         )
                                                     "
@@ -164,7 +161,7 @@
                                                 <Link
                                                     :href="
                                                         route(
-                                                            'tests.view',
+                                                            'admin.tests.view',
                                                             test.id
                                                         )
                                                     "
@@ -184,7 +181,7 @@
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </AdminAuthenticatedLayout>
 </template>
 <script setup>
 import { PlusIcon } from "@heroicons/vue/24/outline";

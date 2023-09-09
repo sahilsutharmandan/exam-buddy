@@ -34,18 +34,19 @@ Route::middleware('auth:admin')->group(function () {
         return Inertia::render('Admin/Dashboard');
     })->name('admin.dashboard');
     Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
+
 });
 
 
-// Route::middleware('auth:admin')->group(function () {
-//     Route::get('tests', [TestController::class,'index'])->name('tests.index');
-//     Route::get('tests/create', [TestController::class,'create'])->name('tests.create');
-//     Route::post('tests/store', [TestController::class,'store'])->name('tests.store');
-//     Route::get('tests/{id}/edit', [TestController::class,'edit'])->name('tests.edit');
-//     Route::put('tests/{id}/update', [TestController::class,'update'])->name('tests.update');
-//     Route::get('tests/{id}/delete', [TestController::class,'destroy'])->name('tests.delete');
-//     Route::get('tests/{id}', [TestController::class,'view'])->name('tests.view');
-// });
+Route::middleware('auth:admin')->group(function () {
+    Route::get('admin/tests', [TestController::class,'index'])->name('admin.tests.index');
+    Route::get('admin/tests/create', [TestController::class,'create'])->name('admin.tests.create');
+    Route::post('admin/tests/store', [TestController::class,'store'])->name('admin.tests.store');
+    Route::get('admin/tests/{id}/edit', [TestController::class,'edit'])->name('admin.tests.edit');
+    Route::put('admin/tests/{id}/update', [TestController::class,'update'])->name('admin.tests.update');
+    Route::get('admin/tests/{id}/delete', [TestController::class,'destroy'])->name('admin.tests.delete');
+
+});
 
 
 
@@ -57,14 +58,8 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('tests', [TestController::class,'index'])->name('tests.index');
-    Route::get('tests/create', [TestController::class,'create'])->name('tests.create');
-    Route::post('tests/store', [TestController::class,'store'])->name('tests.store');
-    Route::get('tests/{id}/edit', [TestController::class,'edit'])->name('tests.edit');
-    Route::put('tests/{id}/update', [TestController::class,'update'])->name('tests.update');
-    Route::get('tests/{id}/delete', [TestController::class,'destroy'])->name('tests.delete');
     Route::get('tests/{id}', [TestController::class,'view'])->name('tests.view');
 });
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

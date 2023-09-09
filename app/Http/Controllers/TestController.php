@@ -41,7 +41,7 @@ class TestController extends Controller
         $test -> questions = $questions;
         $test->save();
 
-        $indexUrl = URL::route('tests.index');
+        $indexUrl = URL::route('admin.tests.index');
         return redirect()->to($indexUrl);
     }
     public function edit($id)
@@ -70,7 +70,7 @@ class TestController extends Controller
         $test -> questions = $questions;
         $test->save();
 
-        $indexUrl = URL::route('tests.index');
+        $indexUrl = URL::route('admin.tests.index');
         return redirect()->to($indexUrl);
     }
     public function destroy($id)

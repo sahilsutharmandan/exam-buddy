@@ -1,5 +1,5 @@
 <template>
-    <AuthenticatedLayout>
+    <AdminAuthenticatedLayout>
         <form action="">
             <div class="grid grid-cols-3 gap-5 divide-x">
                 <div class="flex-1 col-span-2 space-y-5">
@@ -64,6 +64,10 @@
                                 <div class="flex gap-2">
                                     <span>D.</span>
                                     <p>{{ question.options_d }}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span>E.</span>
+                                    <p>{{ question.options_e }}</p>
                                 </div>
                             </div>
                         </div>
@@ -193,6 +197,24 @@
                                                 autocomplete="current-password"
                                         /></label>
                                     </div>
+                                    <div class="flex items-center gap-3">
+                                        <p
+                                            class="text-sm font-medium text-gray-500"
+                                        >
+                                            E.
+                                        </p>
+                                        <input
+                                            id="options_e"
+                                            name="notification-method"
+                                            type="radio"
+                                            value="options_e"
+                                            v-model="newQuestion.answer"
+                                            class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-600"
+                                        />
+                                        <label for="options_d" class="block">
+                                            None of these
+                                        </label>
+                                    </div>
                                 </div>
                             </fieldset>
                         </div>
@@ -226,7 +248,7 @@
                 </div>
             </div>
         </form>
-    </AuthenticatedLayout>
+    </AdminAuthenticatedLayout>
 </template>
 <script setup>
 import { ref } from "vue";
@@ -254,6 +276,7 @@ const form = useForm(
                       options_b: "Toronto",
                       options_c: "Vancouver",
                       options_d: "Montreal",
+                      options_e: "None of these",
                       answer: "options_a",
                   },
               ],
@@ -266,6 +289,7 @@ const newQuestion = ref({
     options_b: "",
     options_c: "",
     options_d: "",
+    options_e: "None of these",
     answer: "",
 });
 const errorMessage = ref("");
@@ -314,7 +338,7 @@ const submitTest = () => {
     form.questions = questionsJSON;
     form.date_range = dateRangeJSON;
 
-    form.post(route("tests.store"));
+    form.post(route("admin.tests.store"));
 };
 const updateTest = (id) => {
     const questionsJSON = JSON.stringify(form.questions);
@@ -323,10 +347,10 @@ const updateTest = (id) => {
     form.questions = questionsJSON;
     form.date_range = dateRangeJSON;
 
-    form.put(route("tests.update", id));
+    form.put(route("admin.tests.update", id));
 };
 
 const goBack = () => {
-    window.location.href = route("tests.index");
+    window.location.href = route("admin.tests.index");
 };
 </script>
