@@ -79,7 +79,11 @@ class TestController extends Controller
         $test->delete();
         return back();
     }
-    public function view($id)
+    public function view()
+    {
+        return Inertia::render('Tests/View', ['tests' => Test::get()]);
+    }
+    public function attempt($id)
     {
         $test = Test::where('id', $id)->first();
 
@@ -90,7 +94,7 @@ class TestController extends Controller
 
         $test->questions = $questionsWithoutAnswers;
 
-        return Inertia::render('Tests/View', ['test' => $test]);
+        return Inertia::render('Tests/AttempTest', ['test' => $test]);
     }
 
 

@@ -246,6 +246,8 @@ const navigation = [
     },
     {
         name: "Tests",
+        href: route("tests.view"),
+        current: window.location.pathname === "/tests",
     },
     { name: "Projects", href: "#", current: false },
     { name: "Calendar", href: "#", current: false },

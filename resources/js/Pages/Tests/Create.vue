@@ -97,9 +97,6 @@
                                 autocomplete="current-password"
                             />
                             <fieldset class="mt-4">
-                                <legend class="sr-only">
-                                    Notification method
-                                </legend>
                                 <div class="flex flex-col gap-5">
                                     <div class="flex items-center gap-3">
                                         <p
@@ -109,7 +106,7 @@
                                         </p>
                                         <input
                                             id="options_a"
-                                            name="notification-method"
+                                            name="questions-options"
                                             type="radio"
                                             class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-600"
                                             value="options_a"
@@ -133,7 +130,7 @@
                                         </p>
                                         <input
                                             id="options_b"
-                                            name="notification-method"
+                                            name="questions-options"
                                             type="radio"
                                             value="options_b"
                                             v-model="newQuestion.answer"
@@ -157,7 +154,7 @@
                                         </p>
                                         <input
                                             id="options_c"
-                                            name="notification-method"
+                                            name="questions-options"
                                             type="radio"
                                             value="options_c"
                                             v-model="newQuestion.answer"
@@ -181,7 +178,7 @@
                                         </p>
                                         <input
                                             id="options_d"
-                                            name="notification-method"
+                                            name="questions-options"
                                             type="radio"
                                             value="options_d"
                                             v-model="newQuestion.answer"
@@ -205,7 +202,7 @@
                                         </p>
                                         <input
                                             id="options_e"
-                                            name="notification-method"
+                                            name="questions-options"
                                             type="radio"
                                             value="options_e"
                                             v-model="newQuestion.answer"

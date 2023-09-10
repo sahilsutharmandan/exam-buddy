@@ -4,6 +4,8 @@ import "../css/app.scss";
 import "../css/dashboard.css";
 import "../css/button.css";
 import "../css/dropdown.scss";
+import "../css/input.css";
+
 import "primevue/resources/themes/viva-light/theme.css";
 import "primeicons/primeicons.css";
 
@@ -15,6 +17,8 @@ import Checkbox from "@/Components/Checkbox.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import Dropdown from "@/Components/Dropdown.vue";
+import RadioBox from "@/Components/RadioBox.vue";
+import Timer from "@/Components/Timer.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import AdminAuthenticatedLayout from "@/Layouts/AdminAuthenticatedLayout.vue";
 import PrimeVue from "primevue/config";
@@ -49,6 +53,8 @@ createInertiaApp({
             .component("AdminAuthenticatedLayout", AdminAuthenticatedLayout)
             .component("Dropdown", Dropdown)
             .component("Calendar", Calendar)
+            .component("RadioBox", RadioBox)
+            .component("Timer", Timer)
             .mixin(FormatService)
             .mount(el);
     },

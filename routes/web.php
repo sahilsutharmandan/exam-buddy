@@ -57,8 +57,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('tests', [TestController::class,'index'])->name('tests.index');
-    Route::get('tests/{id}', [TestController::class,'view'])->name('tests.view');
+    Route::get('tests', [TestController::class,'view'])->name('tests.view');
+    Route::get('tests/{id}', [TestController::class,'attempt'])->name('tests.attempt');
 });
 
 Route::middleware('auth')->group(function () {

@@ -5,8 +5,8 @@
 
             <main class="-mt-32">
                 <div
-                    style="min-height: calc(100vh - 100px)"
-                    class="p-4 mx-auto bg-white shadow max-w-7xl sm:p-6 rounded-xl"
+                    style="height: calc(100vh - 80px)"
+                    class="p-4 mx-auto overflow-auto bg-white shadow max-w-7xl sm:p-6 rounded-xl scrollbar"
                 >
                     <slot></slot>
                 </div>

@@ -1,3 +1,61 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.scrollbar {
+    $scrollbar-2-thumb-width: 10px;
+    $scrollbar-radius: 12px;
+    $scrollbar-2-thumb-color: #82a7c7;
+    $scrollbar-2-track-color: #dddddd;
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-2-thumb-color;
+        border-radius: $scrollbar-radius;
+        // border: 0.3rem solid #1e1f22 !important;
+    }
+
+    // Chrome & Opera
+    &::-webkit-scrollbar {
+        width: $scrollbar-2-thumb-width;
+        height: $scrollbar-2-thumb-width;
+
+        &-track {
+            background-color: $scrollbar-2-track-color;
+            border-radius: $scrollbar-radius;
+        }
+
+        &-thumb {
+            background-color: $scrollbar-2-thumb-color;
+            border-radius: $scrollbar-radius;
+        }
+
+        &-track,
+        &-thumb {
+            border-radius: $scrollbar-radius;
+        }
+    }
+
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-2-thumb-color $scrollbar-2-track-color;
+}
+
+body {
+    overflow: hidden;
+}
+
+[class^="scrollbar"] {
+    height: 200px;
+    overflow-y: scroll;
+
+    div {
+        height: 400px;
+        width: 200%;
+        padding: 4rem;
+        background-image: linear-gradient(
+            130deg,
+            rgb(200, 200, 200) 0%,
+            rgb(254, 254, 254) 100%
+        );
+    }
+}

@@ -158,7 +158,7 @@
                                                         class="pi pi-trash test-lg"
                                                     ></i>
                                                 </Link>
-                                                <Link
+                                                <!-- <Link
                                                     :href="
                                                         route(
                                                             'admin.tests.view',
@@ -170,7 +170,7 @@
                                                     <i
                                                         class="pi pi-eye test-lg"
                                                     ></i>
-                                                </Link>
+                                                </Link> -->
                                             </td>
                                         </tr>
                                     </tbody>
