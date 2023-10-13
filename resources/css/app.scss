@@ -40,9 +40,9 @@
     scrollbar-color: $scrollbar-2-thumb-color $scrollbar-2-track-color;
 }
 
-body {
-    overflow: hidden;
-}
+// body {
+//     overflow: hidden;
+// }
 
 [class^="scrollbar"] {
     height: 200px;
